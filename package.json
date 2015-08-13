@@ -4,11 +4,18 @@
   "description": "",
   "main": "utils.coffee",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers coffee:coffee-script/register",
+    "test-watch": "mocha --compilers coffee:coffee-script/register --watch"
   },
   "keywords": [
     "utils"
   ],
   "author": "maxlath",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "inv-loggers": "^2.0.0",
+    "mocha": "^2.2.5",
+    "should": "^7.0.3",
+    "underscore": "^1.8.3"
+  }
 }
