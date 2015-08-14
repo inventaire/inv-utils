@@ -10,7 +10,7 @@
     "build-watch": "rm -rf build; coffee --watch -o build -c src",
     "dist": "browserify build/utils.js -s invUtils > dist/inv-utils.js",
     "minimize": "uglifyjs dist/inv-utils.js -c -m > dist/inv-utils.min.js",
-    "prepublish": "npm run lint && npm run test && npm run build && npm run dist"
+    "prepublish": "npm run test && npm run build && npm run dist"
   },
   "keywords": [
     "utils"
