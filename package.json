@@ -2,10 +2,15 @@
   "name": "inv-utils",
   "version": "1.1.0",
   "description": "",
-  "main": "utils.coffee",
+  "main": "build/inv-utils.js",
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script/register",
-    "test-watch": "mocha --compilers coffee:coffee-script/register --watch"
+    "test-watch": "mocha --compilers coffee:coffee-script/register --watch",
+    "build": " coffee -o build -c src ",
+    "build-watch": "rm -rf build; coffee --watch -o build -c src",
+    "dist": "browserify build/utils.js -s invUtils > dist/inv-utils.js",
+    "minimize": "uglifyjs dist/inv-utils.js -c -m > dist/inv-utils.min.js",
+    "prepublish": "npm run lint && npm run test && npm run build && npm run dist"
   },
   "keywords": [
     "utils"
@@ -15,7 +20,7 @@
   "devDependencies": {
     "inv-loggers": "^2.0.0",
     "mocha": "^2.2.5",
-    "should": "^7.0.3",
+    "should": "^7.0.4",
     "underscore": "^1.8.3"
   }
 }
