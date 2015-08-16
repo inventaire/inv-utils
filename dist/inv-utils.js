@@ -77,7 +77,6 @@
       },
       parseQuery: function(queryString) {
         var query;
-        _.type(queryString, 'string|undefined');
         query = {};
         if (queryString != null) {
           queryString.replace(/^\?/, '').split('&').forEach(function(param) {
