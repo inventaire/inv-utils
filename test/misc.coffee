@@ -27,6 +27,8 @@ describe 'Utils', ->
       _.parseQuery(queries.good).should.be.an.Object
       _.parseQuery(queries.goodToo).should.be.an.Object
       _.parseQuery(queries.uncompleteButGood).should.be.an.Object
+      _.parseQuery().should.be.an.Object
+      _.parseQuery(null).should.be.an.Object
       _.log _.parseQuery(queries.goodToo), queries.goodToo
       done()
 
