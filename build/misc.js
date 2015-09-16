@@ -186,6 +186,13 @@
       },
       shortLang: function(lang) {
         return lang != null ? lang.slice(0, 2) : void 0;
+      },
+      Tap: function(sideEffectFn) {
+        var tap;
+        return tap = function(arg) {
+          sideEffectFn(arg);
+          return arg;
+        };
       }
     };
   };
