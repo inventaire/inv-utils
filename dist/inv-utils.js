@@ -206,6 +206,7 @@
       },
       Tap: function(sideEffectFn) {
         var tap;
+        _.type(sideEffectFn, 'function');
         return tap = function(arg) {
           sideEffectFn(arg);
           return arg;
