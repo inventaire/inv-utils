@@ -140,3 +140,7 @@ module.exports = (_)->
 
   shortLang: (lang)-> lang?[0..1]
 
+  Tap: (sideEffectFn)->
+    return tap = (arg)->
+      sideEffectFn arg
+      return arg
