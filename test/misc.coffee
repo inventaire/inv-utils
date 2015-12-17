@@ -102,7 +102,6 @@ describe 'Utils', ->
       .catch console.error.bind(console)
 
   validUrls = [
-    'yo.fr'
     'http://yo.fr'
     'https://yo.fr'
     'https://yo.yo.fr'
@@ -114,6 +113,7 @@ describe 'Utils', ->
 
   invalidUrls = [
     'nop'
+    'yo.fr'
     'htp://yo.fr'
     'http//yo.fr'
     'https//yo.fr'
