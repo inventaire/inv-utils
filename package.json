@@ -18,8 +18,8 @@
   "author": "maxlath",
   "license": "MIT",
   "devDependencies": {
-    "bluebird": "^2.10.0",
-    "inv-loggers": "^2.0.0",
+    "bluebird": "^3.1.1",
+    "inv-loggers": "^3.0.1",
     "mocha": "^2.2.5",
     "should": "^7.0.4",
     "underscore": "^1.8.3"
