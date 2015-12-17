@@ -4,10 +4,8 @@ Promise = require 'bluebird'
 
 _ = require './utils_builder'
 
-
-
 describe 'Utils', ->
-  describe 'buildPath', (done)->
+  describe 'buildPath', ->
     it 'should return a string with parameters', (done)->
       path = _.buildPath 'http://hero/api', {action: 'man'}
       path.should.be.a.String
@@ -24,7 +22,7 @@ describe 'Utils', ->
     goodToo: '?category=book&text=whatever&claim=youknowhat&answer=imhappy'
     uncompleteButGood: '?category=book&text=&claim=&answer=imhappy'
 
-  describe 'parseQuery', (done)->
+  describe 'parseQuery', ->
     it 'should return an object', (done)->
       _.parseQuery(queries.good).should.be.an.Object
       _.parseQuery(queries.goodToo).should.be.an.Object
@@ -43,7 +41,7 @@ describe 'Utils', ->
       done()
 
 
-  describe 'idGenerator', (done)->
+  describe 'idGenerator', ->
     it 'should return a string', (done)->
       _.idGenerator(10).should.be.a.String
       done()
@@ -60,7 +58,7 @@ describe 'Utils', ->
       done()
 
 
-  describe 'pickToArray', (done)->
+  describe 'pickToArray', ->
     it 'should return an array', (done)->
       obj =
         a: 15
@@ -74,7 +72,7 @@ describe 'Utils', ->
       done()
 
 
-  describe 'duplicatesArray', (done)->
+  describe 'duplicatesArray', ->
     it 'should return an array filled with the string', (done)->
       hops = _.duplicatesArray('hop', 3)
       hops.length.should.equal 3
@@ -85,7 +83,7 @@ describe 'Utils', ->
       blops.forEach (el)-> el.should.equal 'blop'
       done()
 
-  describe 'Tap', (done)->
+  describe 'Tap', ->
     it 'should return a function', (done)->
       fn = _.Tap(-> 'hello')
       fn.should.be.type('function')
@@ -102,3 +100,36 @@ describe 'Utils', ->
         res.should.equal 'hello'
         done()
       .catch console.error.bind(console)
+
+  validUrls = [
+    'yo.fr'
+    'http://yo.fr'
+    'https://yo.fr'
+    'https://yo.yo.fr'
+    'https://y_o.yo.fr'
+    'https://y-o.yo.fr'
+    'https://hello:pwd@y-o.yo.holidays:3006'
+    'https://hello:pwd@y-o.yo.holidays:3006/glou_-bi?q=boulga#yolo'
+  ]
+
+  invalidUrls = [
+    'nop'
+    'htp://yo.fr'
+    'http//yo.fr'
+    'https//yo.fr'
+    'http:/yo.fr'
+    'http:/yo.fr'
+    'http://yo-.yo.fr'
+    'http://yo_.yo.fr'
+    'http://_yo.yo.fr'
+    'http://yo._yo.fr'
+  ]
+
+  describe 'isUrl', ->
+    it 'should return true on valid urls', (done)->
+      und.all(validUrls, _.isUrl).should.equal true
+      done()
+
+    it 'should return false on invalid urls', (done)->
+      und.any(invalidUrls, _.isUrl).should.equal false
+      done()
