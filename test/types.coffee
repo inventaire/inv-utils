@@ -116,7 +116,7 @@ describe 'UTILS', ->
         done()
       , done)
 
-    it "should handle throw when on argument is of the wrong type", (done)->
+    it "should handle throw when an argument is of the wrong type", (done)->
       trycatch( ->
         args = [{whoami: 'im an object'}, 1, 2, 125]
         (-> _.types(args, ['object', 'number', 'string', 'number'])).should.throw()
@@ -164,6 +164,14 @@ describe 'UTILS', ->
     it "should accept piped 's...' types", (done)->
       (-> _.types([1,2,'yo',41235115], 'strings...|numbers...')).should.not.throw()
       (-> _.types([1,2,'yo', [],41235115], 'strings...|numbers...')).should.throw()
+      done()
+
+    it "common types should accept receiving 0 argument", (done)->
+      (-> _.types([], 'numbers...')).should.not.throw()
+      done()
+
+    it "common types should accept receiving 1 argument", (done)->
+      (-> _.types([123], 'numbers...')).should.not.throw()
       done()
 
   describe 'ALL', ->

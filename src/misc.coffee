@@ -103,7 +103,7 @@ module.exports = (_)->
   matchesCount: (arrays...)-> _.intersection.apply(_, arrays).length
   haveAMatch: (arrays...)-> _.matchesCount.apply(null, arrays) > 0
 
-  duplicatesArray: (str, num)-> [1..num].map -> str
+  duplicatesArray: (str, num)-> [0...num].map -> str
 
   objLength: (obj)-> Object.keys(obj)?.length
 
