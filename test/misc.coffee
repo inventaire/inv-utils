@@ -83,24 +83,6 @@ describe 'Utils', ->
       blops.forEach (el)-> el.should.equal 'blop'
       done()
 
-  describe 'Tap', ->
-    it 'should return a function', (done)->
-      fn = _.Tap(-> 'hello')
-      fn.should.be.type('function')
-      done()
-
-    it 'should throw if not passed a function', (done)->
-      (-> _.Tap('nop')).should.throw()
-      done()
-
-    it 'should not interfere with the later passed value', (done)->
-      Promise.resolve('hello')
-      .then _.Tap((arg)-> console.log('say wat:', arg))
-      .then (res)->
-        res.should.equal 'hello'
-        done()
-      .catch console.error.bind(console)
-
   validUrls = [
     'http://yo.fr'
     'https://yo.fr'

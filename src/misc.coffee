@@ -139,9 +139,3 @@ module.exports = (_)->
     return Math.ceil(width / 100) * 100
 
   shortLang: (lang)-> lang?[0..1]
-
-  Tap: (sideEffectFn)->
-    _.type sideEffectFn, 'function'
-    return tap = (arg)->
-      sideEffectFn arg
-      return arg
