@@ -148,7 +148,7 @@
         var j, results;
         return (function() {
           results = [];
-          for (var j = 1; 1 <= num ? j <= num : j >= num; 1 <= num ? j++ : j--){ results.push(j); }
+          for (var j = 0; 0 <= num ? j < num : j > num; 0 <= num ? j++ : j--){ results.push(j); }
           return results;
         }).apply(this).map(function() {
           return str;
