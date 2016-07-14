@@ -216,12 +216,14 @@
 
   module.exports = {
     type: function(obj, type) {
-      var trueType;
+      var err, trueType;
       trueType = this.typeOf(obj);
       if (indexOf.call(type.split('|'), trueType) >= 0) {
         return obj;
       } else {
-        throw new Error("TypeError: expected " + type + ", got " + obj + " (" + trueType + ")");
+        err = new Error("TypeError: expected " + type + ", got " + obj + " (" + trueType + ")");
+        err.context = arguments;
+        throw err;
       }
     },
     types: function(args, types, minArgsLength) {
@@ -248,7 +250,9 @@
           err = "expected " + types.length + " arguments, got " + args.length + ": " + args;
         }
         console.log(args);
-        throw new Error(err);
+        err = new Error(err);
+        err.context = arguments;
+        throw err;
       }
       i = 0;
       try {
