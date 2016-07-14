@@ -2,7 +2,10 @@ module.exports =
   type: (obj, type)->
     trueType = @typeOf obj
     if trueType in type.split('|') then return obj
-    else throw new Error "TypeError: expected #{type}, got #{obj} (#{trueType})"
+    else
+      err = new Error "TypeError: expected #{type}, got #{obj} (#{trueType})"
+      err.context = arguments
+      throw err
 
   types: (args, types, minArgsLength)->
 
@@ -30,7 +33,10 @@ module.exports =
       if minArgsLength? then err = "expected between #{minArgsLength} and #{types.length} arguments, got #{args.length}: #{args}"
       else err = "expected #{types.length} arguments, got #{args.length}: #{args}"
       console.log args
-      throw new Error err
+      err = new Error err
+      err.context = arguments
+      throw err
+
     i = 0
     try
       while i < args.length
