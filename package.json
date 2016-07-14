@@ -18,10 +18,10 @@
   "author": "maxlath",
   "license": "MIT",
   "devDependencies": {
-    "bluebird": "^3.1.1",
-    "inv-loggers": "^3.0.1",
-    "mocha": "^2.2.5",
-    "should": "^7.0.4",
+    "bluebird": "^3.4.1",
+    "inv-loggers": "^3.2.5",
+    "mocha": "^2.5.3",
+    "should": "^9.0.2",
     "underscore": "^1.8.3"
   }
 }
