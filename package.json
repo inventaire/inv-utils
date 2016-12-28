@@ -1,7 +1,7 @@
 {
   "name": "inv-utils",
   "version": "2.0.4",
-  "description": "",
+  "description": "shared utils for inventaire.io services",
   "main": "build/inv-utils.js",
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script/register",
@@ -21,8 +21,8 @@
     "bluebird": "^3.4.1",
     "browserify": "^13.0.1",
     "inv-loggers": "^3.2.5",
-    "mocha": "^2.5.3",
-    "should": "^9.0.2",
+    "mocha": "^3.2.0",
+    "should": "^11.1.2",
     "underscore": "^1.8.3"
   }
 }
