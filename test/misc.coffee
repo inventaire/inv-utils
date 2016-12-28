@@ -115,3 +115,15 @@ describe 'Utils', ->
     it 'should return false on invalid urls', (done)->
       und.any(invalidUrls, _.isUrl).should.equal false
       done()
+
+  imgRoot = 'http://somehost:3006'
+
+  describe 'imgSrc', ->
+    it 'should return a function', (done)->
+      _.imgSrc(imgRoot).should.be.a.Function()
+      done()
+
+    it 'should return a function that return a url', (done)->
+      _.imgSrc(imgRoot)(validUrls[0]).should.equal "#{imgRoot}/img/1600x1600/1117971502?href=http%3A%2F%2Fyo.fr"
+      _.imgSrc(imgRoot)(validUrls[0], 300).should.equal "#{imgRoot}/img/300x1600/1117971502?href=http%3A%2F%2Fyo.fr"
+      done()
