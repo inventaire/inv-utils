@@ -1,6 +1,7 @@
-types_ = require './types'
-misc_ = require('./misc')
+const types_ = require('./types');
+const misc_ = require('./misc');
 
-module.exports = (_)->
-  _.extend _, types_
-  return _.extend _, misc_(_)
+module.exports = function(_){
+  _.extend(_, types_);
+  return _.extend(_, misc_(_));
+};
