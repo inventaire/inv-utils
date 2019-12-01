@@ -1,9 +1,11 @@
 {
   "name": "inv-utils",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "shared utils for inventaire.io services",
   "main": "lib/inv-utils.js",
-  "files": [ "lib" ],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "mocha",
     "test-watch": "mocha --watch",
