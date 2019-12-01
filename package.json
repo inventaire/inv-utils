@@ -19,8 +19,8 @@
   "license": "MIT",
   "devDependencies": {
     "inv-loggers": "^3.2.5",
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
+    "mocha": "^6.2.2",
+    "should": "^13.2.3",
     "underscore": "^1.8.3"
   },
   "directories": {
