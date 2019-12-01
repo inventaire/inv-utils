@@ -2,15 +2,12 @@
   "name": "inv-utils",
   "version": "2.1.0",
   "description": "shared utils for inventaire.io services",
-  "main": "build/inv-utils.js",
+  "main": "lib/inv-utils.js",
+  "files": [ "lib" ],
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script/register",
-    "test-watch": "mocha --compilers coffee:coffee-script/register --watch",
-    "build": " coffee -o build -c src ",
-    "build-watch": "rm -rf build; coffee --watch -o build -c src",
-    "dist": "browserify build/inv-utils.js -s invUtils > dist/inv-utils.js",
-    "minimize": "uglifyjs dist/inv-utils.js -c -m > dist/inv-utils.min.js",
-    "prepublish": "npm run test && npm run build && npm run dist"
+    "test": "mocha",
+    "test-watch": "mocha --watch",
+    "prepublish": "npm run test"
   },
   "keywords": [
     "utils"
@@ -18,11 +15,22 @@
   "author": "maxlath",
   "license": "MIT",
   "devDependencies": {
-    "bluebird": "^3.4.1",
-    "browserify": "^13.1.1",
     "inv-loggers": "^3.2.5",
     "mocha": "^3.2.0",
     "should": "^11.1.2",
     "underscore": "^1.8.3"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inventaire/inv-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inventaire/inv-utils/issues"
+  },
+  "homepage": "https://github.com/inventaire/inv-utils#readme"
 }
